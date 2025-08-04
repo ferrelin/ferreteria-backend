@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ferrelin E.I.R.L</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Ferrelin E.I.R.L</h1>
+    <div class="user-info">
+      <span id="bienvenida">Bienvenido</span>
+      <button onclick="logout()" class="logout-btn">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <button id="toggleFormBtn" class="toggle-btn">+ Agregar Producto</button>
+    <input type="text" id="searchInput" placeholder="🔍 Buscar productos..." />
+    
+    <div class="card">
+      <h2>Agregar / Editar Producto</h2>
+      <form id="productForm" enctype="multipart/form-data">
+        <input type="hidden" id="productId" />
+        <input type="text" id="name" placeholder="Nombre del producto" required />
+        <input type="number" id="price" step="0.01" min="0.1" placeholder="Precio (S/)" required />
+        <input type="number" id="stock" min="0" placeholder="Stock disponible" required />
+        <input type="text" id="category" placeholder="Código" required />
+        
+        <input type="file" id="image" accept="image/*" />
+        <button type="submit">Guardar producto</button>
+      </form>
+    </div>
+
+    <section id="productList" class="product-list">
+      <!-- Productos aparecerán aquí -->
+    </section>
+  </main>
+
+  <script>
+    const usuario = localStorage.getItem('usuario');
+    const bienvenida = document.getElementById('bienvenida');
+
+    if (usuario) {
+      bienvenida.textContent = `Bienvenido, ${usuario}`;
+    } else {
+      window.location.href = 'login.html';
+    }
+
+    function logout() {
+      localStorage.removeItem('usuario');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <script src="frontend/app.js"></script>
+</body>
+</html>

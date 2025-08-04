@@ -48,7 +48,6 @@ router.get('/buscar', async (req, res) => {
   }
 });
 
-
 // Obtener por ID
 router.get('/:id', async (req, res) => {
   try {
@@ -65,6 +64,7 @@ router.post('/', upload.single('imagen'), async (req, res) => {
     const nuevoProducto = new Producto({
       nombre: req.body.nombre,
       precio: req.body.precio,
+      precioCompra: req.body.precioCompra, // Agregado
       stock: req.body.stock,
       codigo: req.body.codigo,
       imagen: req.file ? req.file.path : ''
@@ -83,6 +83,7 @@ router.put('/:id', upload.single('imagen'), async (req, res) => {
     const datosActualizados = {
       nombre: req.body.nombre,
       precio: req.body.precio,
+      precioCompra: req.body.precioCompra, // Agregado
       stock: req.body.stock,
       codigo: req.body.codigo
     };

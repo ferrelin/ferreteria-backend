@@ -1,0 +1,35 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Ferretería</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2><b> INICIAR SESIÓN</b></h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario" required />
+      <input type="password" id="contrasena" placeholder="Contraseña" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const user = document.getElementById("usuario").value;
+      const pass = document.getElementById("contrasena").value;
+
+      if (user && pass) {
+        localStorage.setItem("usuario", user);
+        window.location.href = "index.html";
+      } else {
+        alert("Por favor, completa todos los campos.");
+      }
+    });
+  </script>
+</body>
+</html>

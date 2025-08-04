@@ -1,0 +1,6 @@
+{
+  "appId": "com.ferrelin.app",
+  "appName": "FerrelinApp",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
