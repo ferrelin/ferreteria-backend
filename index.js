@@ -29,3 +29,4 @@ mongoose.connect(MONGO_URI)
   .catch((err) => {
     console.error('❌ Error al conectar a MongoDB Atlas:', err);
   });
+// Cambio menor para forzar deploy
